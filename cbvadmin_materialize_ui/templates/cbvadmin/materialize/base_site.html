@@ -1,0 +1,18 @@
+{% extends 'cbvadmin/materialize/base.html' %}
+{% block outer_content %}
+{% with ThemeColor1="blue darken-2 white-text" %} 
+<div class="navbar-fixed">
+  <nav class="{{ ThemeColor1 }} main-content">
+    <div class="nav-wrapper">
+      <a class="brand-logo">{% block title %}{% endblock %}</a>
+      <a href="#" data-activates="nav-menu" class="sidenav-trigger hide-on-large-only">
+      	<i class="material-icons">menu</i>
+      </a>
+      {% block actions %}{% endblock %}
+    </div>
+  </nav>
+</div>
+{% include 'cbvadmin/materialize/sidebar.html' %}
+<main>{% block content %}{% endblock %}</main>
+{% endwith %}
+{% endblock %}

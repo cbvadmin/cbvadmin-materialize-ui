@@ -1,0 +1,41 @@
+{% load menu %}
+{% block menu %}
+{% generate_menu %}
+<!-- side nav -->
+<aside class="nav-collapsible">
+  <ul id="nav-menu" class="side-nav fixed leftside-navigation">
+    <li class="brand-sidebar {{ ThemeColor1 }} center-align">
+      <div>{% block admin_name %}{{ view.admin.site.title }}{% endblock %}</div>
+    </li>
+    <li class="no-padding">
+      <ul class="collapsible" data-collapsible="accordion">
+        <li class="bold">
+          <a class="collapsible-header">
+            <i class="material-icons">account_circle</i>
+            <span class="nav-text">{{ request.user }}</span>
+          </a>
+          <div class="collapsible-body">
+            <ul>
+              <li>
+                <a href="{% url 'cbvadmin:password_change' %}">
+                  <i class="material-icons">keyboard_arrow_right</i>
+                  <span class="nav-text">Alterar senha</span>
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'cbvadmin:logout' %}">
+                  <i class="material-icons">keyboard_arrow_right</i>
+                  <span class="nav-text">Encerrar sessão</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </li>
+  {% with menu=menus.cbvadmin %}
+  {% include 'cbvadmin/materialize/menu.html' %}
+  {% endwith %}
+  </ul>
+</aside>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% for item in menu %}
+{% if item.visible %}
+{% if item.children %}
+<li class="no-padding">
+  <ul class="collapsible" data-collapsible="accordion">
+    <li class="bold">
+      <a class="collapsible-header">
+        <i class="material-icons">{{ item.icon|default:'radio_button_unchecked' }}</i>
+        <span class="nav-text">{{ item.title }}</span>
+      </a>
+      <div class="collapsible-body">
+        <ul>
+          {% for subitem in item.children %}
+          <li>
+            <a {% if subitem.url %}href="{{ subitem.url }}"{% endif %}>
+              <i class="material-icons">keyboard_arrow_right</i>
+              <span class="nav-text">{{ subitem.title }}</span>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </li>
+  </ul>
+</li>
+{% else %}
+<li class="bold">
+  <a{% if item.url %} href="{{ item.url }}"{% endif %}>
+    <i class="material-icons">{{ item.icon|default:'radio_button_unchecked' }}</i>
+    <span class="nav-text">{{ item.title }}</span>
+  </a>
+</li>
+{% endif %}
+{% endif %}
+{% endfor %}
