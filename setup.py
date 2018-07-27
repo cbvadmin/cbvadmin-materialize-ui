@@ -28,7 +28,7 @@ setup(
     include_package_data=True,
     install_requires=[
         'Django>=2.0',
-        'django-crispy-forms>=1.6',
-        'materialize_css_forms>=1.0',
+        'django-crispy-forms>=1.7',
+        'crispy-forms-materialize>=0.2',
     ]
 )
