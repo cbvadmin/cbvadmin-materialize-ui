@@ -23,7 +23,7 @@ setup(
     author='roldaojr',
     author_email='roldaogjr@gmail.com',
     url='https://github.com/roldaojr/cbvadmin-materialize-ui',
-    license='MIT',
+    license='LGPL',
     packages=['cbvadmin_materialize_ui'],
     include_package_data=True,
     install_requires=[
