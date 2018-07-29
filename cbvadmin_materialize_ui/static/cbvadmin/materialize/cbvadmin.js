@@ -8,6 +8,7 @@ $(document).ready(function(){
         return false
     })
     $('select').not('.django-select2').material_select()
+    $('.modal').modal()
     /*$.extend($.fn.pickadate.defaults, {
         monthsFull: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agusto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
         monthsShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dec'],

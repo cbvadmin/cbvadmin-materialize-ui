@@ -1,7 +1,10 @@
 required_settings = {
     'CBVADMIN_TEMPLATE_PACK': 'materialize',
     'CRISPY_TEMPLATE_PACK': 'materialize_css_forms',
-    'CRISPY_ALLOWED_TEMPLATE_PACKS': ('materialize_css_forms',)
+    'CRISPY_ALLOWED_TEMPLATE_PACKS': ('materialize_css_forms',),
+    'CRISPY_CLASS_CONVERTERS': {
+        'textarea': 'materialize-textarea'
+    }
 }
 
 
