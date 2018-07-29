@@ -26,6 +26,8 @@ setup(
     license='LGPL',
     packages=['cbvadmin_materialize_ui'],
     include_package_data=True,
+    zip_safe=False,
+    python_requires='>=3',
     install_requires=[
         'Django>=2.0',
         'django-crispy-forms>=1.7',
