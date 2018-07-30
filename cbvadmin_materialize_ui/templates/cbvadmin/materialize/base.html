@@ -1,23 +1,28 @@
-{% load static %}
+{% load static i18n %}
 <!DOCTYPE html>
 <html>
 <head>
-<link href="{% static 'materialize/css/materialize.css' %}" rel="stylesheet" media="screen,projection">
-<link href="{% static 'material-design-icons/material-design-icons.css' %}" rel="stylesheet">
+<title>{% block title %}{% endblock %}</title>
+<link href="{% static 'vendor/materialize/css/materialize.css' %}" rel="stylesheet" media="screen,projection">
+<link href="{% static 'vendor/material-design-icons/material-design-icons.css' %}" rel="stylesheet">
 <link href="{% static 'cbvadmin/materialize/cbvadmin.css' %}" rel="stylesheet">
 <link href="{% static 'cbvadmin/materialize/table-collapse.css' %}" rel="stylesheet">
-<title>{% block title %}{% endblock %}</title>
 {% block extrahead %}{% endblock %}
 </head>
 <body>
 {% block outer_content %}{% endblock %}
-<script type="text/javascript" src="{% static 'jquery.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'materialize/js/materialize.js' %}"></script>
+<script type="text/javascript" src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'vendor/materialize/js/materialize.js' %}"></script>
+<script type="text/javascript" src="{% static 'vendor/moment/moment-with-locales.min.js' %}"></script>
+<script type="text/javascript">
+{% get_current_language as LANGUAGE_CODE %}
+moment.locale('{{ LANGUAGE_CODE }}');
+</script>
 <script type="text/javascript" src="{% static 'cbvadmin/materialize/cbvadmin.js' %}"></script>
 <script type="text/javascript">
 {% if messages %}
 {% for message in messages %}
-Materialize.toast('{{ message }}', 4000, '{{ message.tags }}')
+M.toast({html: '{{ message }}', displayLength:4000, classes:'{{ message.tags }}'})
 {% endfor %}
 {% endif %}
 </script>

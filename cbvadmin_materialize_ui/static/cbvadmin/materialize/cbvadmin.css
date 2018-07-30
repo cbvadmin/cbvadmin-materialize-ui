@@ -1,4 +1,4 @@
-/* side-bar */
+/* display sidenav on computer */
 header, main, footer, .main-content {
     padding-left: 0px;
 }
@@ -11,92 +11,23 @@ header, main, footer, .main-content {
         padding-left: 265px;
     }
 }
-/* /side-bar */
-
-.bold > a {
-    font-weight: bold;
-}
-
-/* Brand sidebar */
-.brand-sidebar {
-}
 
 /* side-bar-menu */
-ul.side-nav.leftside-navigation li:not(.no-padding) a {
-    font-family: "Rubik", sans-serif;
-    font-size: 14px;
-    font-weight: 300;
-    white-space: nowrap;
-}
-ul.side-nav .collapsible-header {
-    margin: 0;
-    font-weight: 500;
-}
-
-.side-nav li > a {
+.sidenav li > a {
     padding: 0 16px !important;
 }
 
-ul.side-nav.leftside-navigation {
+ul.sidenav.leftside-navigation {
     height: 100%;
 }
 
-#nav-menu li a i {
-    line-height: inherit;
-    width: 2rem;
-    font-size: 1.4rem;
+/* display sidenav-trigger buttons on computer */
+nav ul a.sidenav-trigger {
+    margin: 0px;
     display: block;
-    float: left;
-    text-align: center;
-    margin-right: 1rem;
 }
 
-/*.material-icons {
-    font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;
-    display: inline-block;
-    line-height: 1;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    -moz-osx-font-smoothing: grayscale;
-    font-feature-settings: 'liga';
-}*/
-
-.nav-expanded .side-nav .nav-text {
-    visibility: visible;
-    opacity: 1;
-    transition: opacity 0.2s linear;
-}
-/* /side-bar-menu */
-/* top nav */
-.nav-wrapper a.sidenav-trigger {
-    line-height: inherit;
-    width: 2rem;
-    display: block;
-    float: left;
-    margin-left: 1rem;
-    margin-right: 1rem;
-}
-
-/*
-@media only screen and (max-width: 600px) {
-    nav .brand-logo {
-        font-size: 1.2rem;
-    }
-}
-
-nav .brand-logo {
-    padding-left: 10px;
-}*/
-/* /brand-logo responsivo */
-
+/* style for static text in forms */
 .control-static {
     background-color: transparent;
     border: none;
@@ -104,17 +35,32 @@ nav .brand-logo {
     border-radius: 0;
     outline: none;
     height: 3rem;
-    line-height: 3rem;
     width: 100%;
+    line-height: 3rem;
     font-size: 1rem;
     padding: 0;
+    -webkit-box-shadow: none;
     box-shadow: none;
+    -webkit-box-sizing: content-box;
     box-sizing: content-box;
-    transition: all 0.3s;
+    -webkit-transition: border .3s, -webkit-box-shadow .3s;
+    transition: border .3s, -webkit-box-shadow .3s;
+    transition: box-shadow .3s, border .3s;
+    transition: box-shadow .3s, border .3s, -webkit-box-shadow .3s;
 }
 
+/* input field format */
 .input-field {
     margin-top: 1.5rem;
+}
+
+/* file field format */
+.input-field.file-field > label {
+    -webkit-transform: translateY(-14px) scale(0.8);
+    transform: translateY(-14px) scale(0.8);
+}
+.input-field.file-field .file-path-wrapper {
+    padding-left: 0px;
 }
 
 /* colored-toast */
@@ -128,24 +74,11 @@ nav .brand-logo {
     color: white;
     font-weight: bold;
 }
-/* /colored-toast */
 
 /* reduce-table-padding */
 td, th {
     padding: 10px 5px;
 }
-/* /reduce-table-padding */
-.dashboard-card-stats-number {
-    padding: 12px 0px 12px 24px;
-    font-size: 2rem;
-    font-weight: bold;
-}
-.dashboard-card-stats-title {
-    font-size: 1.0rem;
-    font-weight: 400;
-    text-transform: uppercase;
-}
-
 
 h4.header2 {
     margin-top: 0px;
@@ -154,23 +87,18 @@ h4.header2 {
     text-transform: uppercase;
 }
 
-.card-stats-number {
-    font-size: 2rem;
-    line-height: 2.0rem;
-    margin: 0.5rem 1.5rem 0.5rem 0;
-    font-weight: 500;
-    float: left;
-}
-
 .no-margin {
     margin: 0px;
 }
 
-/* select-wrapper valid border color */
-/*
-.select-wrapper.valid input.select-dropdown {
-    border-bottom: 1px solid #4CAF50;
-    box-shadow: 0 1px 0 0 #4CAF50;
+.bold > a {
+    font-weight: bold;
 }
-*/
-/* /select-wrapper valid border color */
+
+/* /reduce-table-padding */
+.dashboard .card-stats-number {
+    font-size: 2rem;
+    margin: 0 1.5rem 0.5rem 0;
+    font-weight: bold;
+    float: left;
+}

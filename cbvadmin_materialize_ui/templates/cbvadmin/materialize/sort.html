@@ -1,8 +1,8 @@
 {% load django_tables2 i18n %}
 {% block sort %}
-<ul id="sort-slide-out" class="side-nav">
-    <li class="logo white-text blue darken-4 center-align">
-        {% trans 'Sort' %}
+<ul id="sort-slide-out" class="right sidenav">
+    <li class="center-align logo {{ ThemeColor1 }}">
+        {% trans 'Order' %}
     </li>
 {% for column in table.columns %}
 {% if column.orderable %}

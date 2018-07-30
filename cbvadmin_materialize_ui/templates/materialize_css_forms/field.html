@@ -1,20 +1,20 @@
-{% load crispy_forms_field %}
+{% load i18n crispy_forms_field %}
 
 {% if field.is_hidden %}
     {{ field }}
 {% else %}
-    <div id="div_{{ field.auto_id }}" class="{% if not field|is_select and not field|is_checkbox %}input-field {% endif %}col s12{% if field.errors and form_show_errors %} error{% endif %}{% if field|is_checkbox %} checkbox{% endif %}{% if wrapper_class %} {{ wrapper_class }}{% endif %}">{% spaceless %}
+    <div id="div_{{ field.auto_id }}" class="{% if not field|is_select and not field|is_checkbox %}input-field {% endif %}{% if field|is_file %}file-field {% endif %}col s12{% if field.errors and form_show_errors %} error{% endif %}{% if field|is_checkbox %} checkbox{% endif %}{% if wrapper_class %} {{ wrapper_class }}{% endif %}">{% spaceless %}
        
         {% if field|is_checkbox %}
-            {% crispy_field field %}
             <label for="{{ field.id_for_label }}" {% if field.field.required %}class="required"{% endif %}>
-            {% if field.label and form_show_labels %}
-                {{ field.label|safe }}{% if field.field.required %}<span class="asterisk"> *</span>{% endif %}
-            {% endif %}
+                {% crispy_field field %}
+                {% if field.label and form_show_labels %}
+                <span>{{ field.label|safe }}{% if field.field.required %}<span class="asterisk"> *</span>{% endif %}</span>
+                {% endif %}
             </label>
         {% endif %}
 
-        {% if field.label and form_show_labels and not field|is_checkbox %}
+        {% if field.label and form_show_labels and not field|is_checkbox and not field|is_file %}
             <label for="{{ field.id_for_label }}" {% if field.field.required %}class="required"{% endif %}>
                 {{ field.label|safe }}{% if field.field.required %}<span class="asterisk"> *</span>{% endif %}
             </label>
@@ -24,8 +24,27 @@
             {% include 'materialize_css_forms/layout/checkboxselectmultiple.html' %}
         {% endif %}
 
-        {% if not field|is_checkbox and not field|is_checkboxselectmultiple %}
+        {% if not field|is_checkbox and not field|is_checkboxselectmultiple and not field|is_file %}
             {% crispy_field field %}
+        {% endif %}
+
+        {% if field|is_file %}
+            <div class="btn-flat" style="position: absolute; right: 0">
+                {% trans 'Change' %}
+            </div>
+            <div class="file-path-wrapper">
+                <input type="text" class="file-path validate" value="{{ field.value }}"/>
+            </div>
+            <input type="file" name="{{ field.name }}" class="clearablefileinput" id="{{ field.auto_id }}">
+            <div>
+                <label for="{{ field.name }}-clear_id">
+                    <input name="{{ field.name }}-clear" class="checkboxinput" id="{{ field.name }}-clear_id" type="checkbox">
+                    <span>{% trans 'Clear' %}</span>
+                </label>
+            </div>
+            <label for="{{ field.id_for_label }}" {% if field.field.required %}class="required"{% endif %}>
+                {{ field.label|safe }}{% if field.field.required %}<span class="asterisk"> *</span>{% endif %}
+            </label>
         {% endif %}
 
         {% if form_show_errors %}

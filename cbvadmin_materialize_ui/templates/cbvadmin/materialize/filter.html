@@ -1,7 +1,10 @@
 {% load crispy_forms_tags i18n %}
 {% block filters %}
 {% if view.has_filters and filter.form %}
-<div id="filter-slide-out" class="side-nav">
+<div id="filter-slide-out" class="right sidenav">
+    <div class="center-align logo {{ ThemeColor1 }}">
+        {% trans 'Filter' %}
+    </div>
     <form id="filter-form" class="row content">
     {% for field in filter.form %}
     {{ field|as_crispy_field }}

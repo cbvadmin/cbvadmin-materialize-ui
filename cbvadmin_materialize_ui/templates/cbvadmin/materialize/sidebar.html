@@ -3,12 +3,12 @@
 {% generate_menu %}
 <!-- side nav -->
 <aside class="nav-collapsible">
-  <ul id="nav-menu" class="side-nav fixed leftside-navigation">
+  <ul id="nav-menu" class="left sidenav sidenav-fixed leftside-navigation">
     <li class="brand-sidebar {{ ThemeColor1 }} center-align">
       <div>{% block admin_name %}{{ view.admin.site.title }}{% endblock %}</div>
     </li>
     <li class="no-padding">
-      <ul class="collapsible" data-collapsible="accordion">
+      <ul class="collapsible collapsible-accordion">
         <li class="bold">
           <a class="collapsible-header">
             <i class="material-icons">account_circle</i>

@@ -32,5 +32,6 @@ setup(
         'Django>=2.0',
         'django-crispy-forms>=1.7',
         'crispy-forms-materialize>=0.2',
+        'django-el-pagination>=3.0'
     ]
 )
