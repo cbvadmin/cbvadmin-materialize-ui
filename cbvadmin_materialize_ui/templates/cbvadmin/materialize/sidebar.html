@@ -4,9 +4,7 @@
 <!-- side nav -->
 <aside class="nav-collapsible">
   <ul id="nav-menu" class="left sidenav sidenav-fixed leftside-navigation">
-    <li class="brand-sidebar {{ ThemeColor1 }} center-align">
-      <div>{% block admin_name %}{{ view.admin.site.title }}{% endblock %}</div>
-    </li>
+    {% include 'cbvadmin/materialize/sidebar-brand.html' %}
     <li class="no-padding">
       <ul class="collapsible collapsible-accordion">
         <li class="bold">
